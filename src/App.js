@@ -1,45 +1,18 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Login from "./pages/Login/Login";
+import Landing from "./pages/Landing/Landing";
 import 'antd/dist/antd.css';
-import { Form, Input, Button, Checkbox } from 'antd';
-import login from './pages/login';
 
-const layout = {
-  labelCol: {
-    span: 8,
-  },
-  wrapperCol: {
-    span: 16,
-  },
-};
-const tailLayout = {
-  wrapperCol: {
-    offset: 8,
-    span: 16,
-  },
-};
-
-function App() {
-  const onFinish = values => {
-    console.log('Success:', values);
-  };
-
-  const onFinishFailed = errorInfo => {
-    console.log('Failed:', errorInfo);
-  };
+const App = () => {
   return (
-    <div 
-      style={{
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center'
-      }}
-      className="App">
-
-        <login/>
-      
-    </div>
+    // @ts-ignore
+    <Router>
+      <Switch>
+        <Route exact path="/" component={Login} />
+        <Route exact path="/index" component={Landing} />
+      </Switch>
+    </Router>
   );
 }
 
